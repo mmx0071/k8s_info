@@ -1,0 +1,71 @@
+For i=3 To 100
+    //这里的脚本可以循环10次
+    Dim text_read, print_info
+    intc = 0
+	print_info = "帮我生成一个代码案例:"
+    text_read = Lib.文件.读取指定行文本内容("D:\AI\input.txt", i)
+    
+	MoveTo 1819, 53
+	Delay 500
+	LeftClick 1
+	Delay 1000
+	MoveTo 1357, 96
+	Delay 500
+	LeftClick 1
+	
+	
+	Delay 500
+	MoveTo 1262,121 
+	Delay 500
+	LeftClick 1
+	Delay 500
+	LeftClick 1
+	SayString print_info
+	Delay 500
+	SayString text_read
+	
+	Delay 500
+	KeyPress "Enter", 1
+	Delay 500
+	Delay 2000
+	
+	
+	Rem 查找完成
+	intc = intc + 1
+	If intc < 100 Then 
+		MoveTo 1557, 901
+		Delay 500
+		LeftClick 1
+		Delay 500
+		MouseWheel -10
+		Delay 500
+		FindPic 1830,100,1920,908,"Attachment:\copy.bmp",0.8,intX,intY
+		If intX > 0 And intY > 0 Then 
+			MoveTo intX + 9, intY + 9
+			Delay 1000
+			LeftClick 1
+			Delay 1000
+			MoveTo 720, 1001
+			Delay 1000
+			LeftClick 1
+			Delay 1000
+			KeyDown 17, 1
+			KeyPress 86, 1
+			KeyUp 17, 1
+			Delay 1000
+			KeyPress "Enter", 1
+			Delay 500
+			KeyPress "-", 5
+			Delay 500
+			KeyPress "Enter", 1
+			Delay 500
+			KeyDown 17, 1
+			KeyPress 83, 1
+			KeyUp 17, 1
+			Delay 500
+		Else 
+			Goto 查找完成
+		End If
+	End If
+	
+Next
